@@ -1,0 +1,2 @@
+module SessionRecapsHelper
+end
