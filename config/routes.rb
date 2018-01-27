@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :characters
   resources :users
 
-  root 'session_recaps#index'
+  root "session_recaps#index"
   get "/pages/*page" => "pages#show"
 end
