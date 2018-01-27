@@ -1,0 +1,2 @@
+<%= link_to "New Session Recap", new_session_recap_path, :class => "btn btn-primary" %>
+<%= render partial: 'session_recaps/session_recap', collection: SessionRecap.order("played_on DESC") %>
