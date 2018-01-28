@@ -1,8 +1,17 @@
+<style>
+    .btn-as-text {
+        background: none;
+        border: none;
+    }
+</style>
+
 <div class="container">
     <div class="col-md-6">
         <div class="container">
-            <h1>General Histories</h1>
-            <ul>
+            <button class="btn-as-text" data-toggle="collapse" data-target="#historiesList">
+                <h1>>General Histories</h1>
+            </button>
+            <ul class="collapse" id="historiesList">
                 <li>
                     <h4><%= link_to "History of Calagoria", "/pages/lore/general_histories/history_of_calagoria" %></h4>
                 </li>
@@ -19,8 +28,10 @@
         </div>
 
         <div class="container">
-            <h1>Wars</h1>
-            <ul>
+            <button class="btn-as-text" data-toggle="collapse" data-target="#warsList">
+                <h1>>Wars</h1>
+            </button>
+            <ul class="collapse" id="warsList">
                 <li>
                     <h4><%= link_to "The Calagorian Rebellion", "/pages/lore/wars/calagorian_rebellion" %></h4>
                 </li>
@@ -34,8 +45,10 @@
         </div>
 
         <div class="container">
-            <h1>The God Kings</h1>
-            <ul>
+            <button class="btn-as-text" data-toggle="collapse" data-target="#godkingsList">
+                <h1>>The God-Kings</h1>
+            </button>
+            <ul class="collapse" id="godkingsList">
                 <li>
                     <h4><%= link_to "Calagor Varamus (The Creator)", "/pages/lore/god_kings/calagor_varamus" %></h4>
                 </li>
@@ -78,7 +91,43 @@
 
     <div class="col-md-6">
         <div class="container">
-            
+            <button class="btn-as-text" data-toggle="collapse" data-target="#magiksList">
+                <h1>>Origins of Magiks</h1>
+            </button>
+            <ul class="collapse" id="magiksList">
+                <li>
+                    <h4></h4>
+                </li>
+                <li>
+                    <h4></h4>
+                </li>
+                <li>
+                    <h4></h4>
+                </li>
+                <li>
+                    <h4></h4>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <button class="btn-as-text" data-toggle="collapse" data-target="#asticansList">
+                <h1>>Origins of the Asticans</h1>
+            </button>
+            <ul class="collapse" id="asticansList">
+                <li>
+                    <h4><%= link_to "Origins of the Elvantis", "/pages/lore/origins/asticans/elvantis" %></h4>
+                </li>
+                <li>
+                    <h4></h4>
+                </li>
+                <li>
+                    <h4></h4>
+                </li>
+                <li>
+                    <h4></h4>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
