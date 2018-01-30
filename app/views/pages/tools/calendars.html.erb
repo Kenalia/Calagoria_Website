@@ -1,0 +1,131 @@
+<div class="container-fluid">
+    <form action="">
+        <h2>Straight-Line => God-Count</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <label for="strLineInput" class="col-md-1">Straight-Line:</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="strLineInput">
+                    </div>
+                    <button type="button" id="Btn_StraightLineSubmit" class="btn col-md-2">Calculate God-Count</button>
+                    <label id="godCountOutput" class="col-md-3">God-Count:</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container-fluid">
+    <form action="">
+        <h2>God-Count => Straight-Line</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row">
+                    <select name="godKingsSelect" id="GodKings" class="custom-select col-md-1">
+                        <option value="1">Calagor</option>
+                        <option value="2">Minas</option>
+                        <option value="3">Seris</option>
+                        <option value="4">Daris</option>
+                        <option value="5">Vitruvius</option>
+                        <option value="6">Adrianus</option>
+                        <option value="7">Pavlos</option>
+                        <option value="8">Ritsa</option>
+                        <option value="9">Prokopios</option>
+                        <option value="10">Helena</option>
+                        <option value="11">Hagen</option>
+                        <option value="12">Mstislav</option>
+                    </select>
+                    <label for="cycleInput" class="col-md-1">Cycle:</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="cycleInput">
+                    </div>
+                    <button type="button" id="Btn_GodCountSubmit" class="btn col-md-2">Calculate God-Count</button>
+                    <label id="strLineOutput" class="col-md-2">Straight-Line:</label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+document.getElementById("Btn_GodCountSubmit").addEventListener("click", calculateStraightLine);
+document.getElementById("Btn_StraightLineSubmit").addEventListener("click", calculateGodCount);
+
+// Straight-Line variables
+var straightLineInput = document.getElementById("strLineInput");
+var godCountOutput = document.getElementById("godCountOutput");
+// God-Count variables
+var godCountYearList = document.getElementById("GodKings")
+var godCountCycleInput = document.getElementById("cycleInput");
+var straightLineOutput = document.getElementById("strLineOutput");
+
+var GodKingsEnum = 
+{
+    // 0-Index for continuity
+    CALAGOR : 0,
+    MINIS : 1,
+    SERIS : 2,
+    DARIS : 3,
+    VITRUVIUS : 4,
+    ADRIANUS : 5,
+    PAVLOS : 6,
+    RITSA : 7,
+    PROKOPIOS : 8,
+    HELENA : 9,
+    HAGEN : 10,
+    MSTISLAV : 11,
+
+    properties: {
+	// 1-Index for year calculations
+        1: {name: "Calagor", value: 1},
+        2: {name: "Minis", value: 2},
+        3: {name: "Seris", value: 3},
+        4: {name: "Daris", value: 4},
+        5: {name: "Vitruvius", value: 5},
+        6: {name: "Adrianus", value: 6},
+        7: {name: "Pavlos", value: 7},
+        8: {name: "Ritsa", value: 8},
+        9: {name: "Prokopios", value: 9},
+        10: {name: "Helena", value: 10},
+        11: {name: "Hagen", value: 11},
+        12: {name: "Mstislav", value: 12}
+    }
+
+}
+
+function calculateGodCount ()
+{
+    var godCountYearCount = 0;
+
+    godCountYearCount += Math.floor(parseInt(straightLineInput.value) / 12);
+
+    if(parseInt(straightLineInput.value) % 12 == 0)
+	godCountYearCount = Math.floor(parseInt(straightLineInput.value) / 12) - 1;
+    else
+	godCountYearCount = Math.floor(parseInt(straightLineInput.value) / 12);
+    
+    // Ternary Operation
+    // Modulo returns 0 for 12, so must explicitly assign to 12
+    //Could isolate modulo operation into own variable
+    var yearMod = parseInt(straightLineInput.value) % 12
+
+    if(yearMod === 0) {yearMod = 12}
+
+    var godYear = GodKingsEnum.properties[yearMod].name;
+
+    godCountOutput.innerText = "Year of " + godYear + ", " + godCountYearCount;
+}
+
+function calculateStraightLine ()
+{
+    var straightLineYearCount = 0;
+
+    straightLineYearCount += (parseInt(godCountCycleInput.value) * 12);
+    
+    straightLineYearCount = Number(straightLineYearCount) + Number(godCountYearList.value);
+
+    straightLineOutput.innerText = "Straight-Line Year: " + straightLineYearCount;
+
+}
+</script>
