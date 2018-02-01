@@ -14,6 +14,11 @@ class SessionRecapsController < ApplicationController
         @session_recap.played_on = params[:session_recap][:played_on]
         @session_recap.save
 
+        if @session_recap.played_on == nil
+            @session_recap.played_on = Date.today
+            @session_recap.save
+        end
+
         redirect_to session_recaps_path
     end
 end
