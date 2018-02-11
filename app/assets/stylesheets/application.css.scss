@@ -15,5 +15,10 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets"
-@import "bootstrap"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.btn-as-text {
+        background: none;
+        border: none;
+}
