@@ -29,5 +29,6 @@ module CalagoriaSite
     config.generators.system_tests = nil
 
     config.serve_static_assets = true
+    config.assets.compile = true
   end
 end
