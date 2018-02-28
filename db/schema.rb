@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228015322) do
+ActiveRecord::Schema.define(version: 20180228021726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,39 +32,12 @@ ActiveRecord::Schema.define(version: 20180228015322) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "characters", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "name"
-    t.string "class_role"
-    t.string "race"
-    t.integer "level", limit: 2
-    t.integer "strength", limit: 2
-    t.integer "dexterity", limit: 2
-    t.integer "constitution", limit: 2
-    t.integer "intelligence", limit: 2
-    t.integer "wisdom", limit: 2
-    t.integer "charisma", limit: 2
-    t.integer "armorclass", limit: 2
-    t.integer "maxhp", limit: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_characters_on_user_id"
-  end
-
   create_table "session_recaps", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "played_on"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "encrypted_password"
-    t.string "salt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
