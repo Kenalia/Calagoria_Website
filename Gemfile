@@ -49,3 +49,6 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'bootstrap-datepicker-rails'
+
+# Administration
+gem 'rails_admin', '~> 1.3'
