@@ -52,3 +52,4 @@ gem 'bootstrap-datepicker-rails'
 
 # Administration
 gem 'rails_admin', '~> 1.3'
+gem 'devise'
