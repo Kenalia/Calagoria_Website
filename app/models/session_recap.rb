@@ -1,5 +1,4 @@
 class SessionRecap < ApplicationRecord
-    has_many :characters
 
     after_initialize :set_defaults
 
